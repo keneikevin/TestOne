@@ -36,7 +36,6 @@ class HomeRepository @Inject constructor(
     }
     suspend fun getComicDetails(comicId:String): Resource<CharacterDetailResponse>{
         return try {
-
             val response= marvelApi.getComicDetails(
                 comicId = 82967,
                 apikey = "4fac92aa42cc19d34c1d12a52c89ae65",
