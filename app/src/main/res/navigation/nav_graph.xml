@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/comicsFragment">
+    <fragment
+        android:id="@+id/comicsFragment"
+        android:name="com.pieme.wallet.ui.ComicsFragment"
+        android:label="ComicsFragment" />
+    <fragment
+        android:id="@+id/seriesFragment"
+        android:name="com.pieme.wallet.ui.SeriesFragment"
+        android:label="SeriesFragment" />
+    <fragment
+        android:id="@+id/storiesFragment"
+        android:name="com.pieme.wallet.ui.StoriesFragment"
+        android:label="StoriesFragment" />
+</navigation>
