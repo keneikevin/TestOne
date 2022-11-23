@@ -26,7 +26,6 @@ class HomeRepository @Inject constructor(
             return if (e is HttpException) {
                 Log.d("ERRROR",e.response().toString())
                 Resource.error(e.message(), null)
-
             } else {
                 Resource.error(
                     "Couldn't connect to the servers. Check your internet connection, $e",
