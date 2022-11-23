@@ -31,8 +31,7 @@ class HomeRepository @Inject constructor(
                     "Couldn't connect to the servers. Check your internet connection, $e",
                     null
                 )
-            }
-        }
+            }        }
     }
     suspend fun getComicDetails(comicId:String): Resource<CharacterDetailResponse>{
         return try {
