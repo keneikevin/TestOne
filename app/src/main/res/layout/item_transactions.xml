@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardUseCompatPadding="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
@@ -13,6 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="#4B424242"
         android:layout_height="wrap_content">
 
 
@@ -20,8 +20,6 @@
             android:id="@+id/item_transaction_image"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:padding="5dp"
-            android:tint="@color/cardview_dark_background"
             android:scaleType="centerCrop"
             android:src="@drawable/person"
             app:layout_constraintEnd_toEndOf="parent"

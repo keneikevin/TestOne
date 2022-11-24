@@ -43,7 +43,7 @@
      android:textColor="@color/black"
      android:textSize="30dp"
      android:visibility="gone"
-     android:text="You don't have any Transactions Yet"
+     android:text="You don't have internet connection"
      android:textStyle="bold"
      android:id="@+id/empty"
      android:textAlignment="center"

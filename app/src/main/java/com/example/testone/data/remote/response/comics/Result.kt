@@ -1,11 +1,14 @@
 package com.example.testone.data.remote.response.comics
 
+import com.google.gson.annotations.SerializedName
+
 data class Result(
     val characters: Characters,
     val collectedIssues: List<CollectedIssue>,
     val collections: List<Any>,
     val creators: Creators,
     val dates: List<Date>,
+    @SerializedName("description")
     val description: String,
     val diamondCode: String,
     val digitalId: Int,
@@ -24,7 +27,7 @@ data class Result(
     val series: Series,
     val stories: Stories,
     val textObjects: List<TextObject>,
-    val thumbnail: Thumbnail,
+    val thumbnail: Thumbnail?,
     val title: String,
     val upc: String,
     val urls: List<Url>,

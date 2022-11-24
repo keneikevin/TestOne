@@ -30,7 +30,9 @@ class HomeViewModel @Inject constructor(
     private var _comicDetail: MutableLiveData<List<ResultDetail>> = MutableLiveData<List<ResultDetail>>()
     var comicDetail: LiveData<List<ResultDetail>> = _comicDetail
 
-
+init {
+    getComicDetails()
+}
     fun getComics() {
         viewModelScope.launch {
             val response= repository.getComics()
@@ -42,7 +44,7 @@ class HomeViewModel @Inject constructor(
     }
     fun getComicDetails() {
         viewModelScope.launch {
-            val response= repository.getComicDetails("82967")
+            val response= repository.getComicDetails("1332")
             _comicDetail.value = response.data?.data?.results
 
             Log.d("ComicsDetail",response.data.toString())

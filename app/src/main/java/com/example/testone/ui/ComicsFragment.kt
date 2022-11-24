@@ -8,6 +8,7 @@ package com.pieme.wallet.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -43,12 +44,11 @@ class ComicsFragment : Fragment(R.layout.fragment_transactions){
 
 
         viewModel.comics.observe(requireActivity(), Observer {
-            Log.d("baba", it.toString())
-
-            it.let { it1 -> adapter.setDataList(it1) }
-        if(it.isNullOrEmpty())
-            binding.empty.visibility = View.VISIBLE
-        else binding.empty.visibility = View.GONE
+            if (it.isNullOrEmpty()){
+                binding.empty.visibility = View.VISIBLE
+            }else{
+            adapter.setDataList(it)
+            }
         }
         )
 

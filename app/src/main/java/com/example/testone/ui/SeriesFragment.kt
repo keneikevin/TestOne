@@ -41,12 +41,11 @@ class SeriesFragment : Fragment(R.layout.fragment_transactions){
 
 
         viewModel.comics.observe(requireActivity(), Observer {
-            Log.d("baba", it.toString())
-
-            it.let { it1 -> adapter.setDataList(it1) }
-        if(it.isNullOrEmpty())
-            binding.empty.visibility = View.VISIBLE
-        else binding.empty.visibility = View.GONE
+            if (it.isNullOrEmpty()){
+                binding.empty.visibility = View.VISIBLE
+            }else{
+                adapter.setDataList(it)
+            }
         }
         )
 

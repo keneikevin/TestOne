@@ -19,7 +19,7 @@ class HomeRepository @Inject constructor(
                 hash = "6449ebca941eb3cf8aedf4c378e1be9e",
                 ts = "2"
             )
-            Log.d("PayHistory","${response.data.results.forEach { it.description }}")
+            Log.d("PayHistory","${response.data.results}}")
             Resource.success(response)
 
         } catch (e: Exception){
@@ -36,12 +36,12 @@ class HomeRepository @Inject constructor(
     suspend fun getComicDetails(comicId:String): Resource<CharacterDetailResponse>{
         return try {
             val response= marvelApi.getComicDetails(
-                comicId = 82967,
+                comicId = 183,
                 apikey = "4fac92aa42cc19d34c1d12a52c89ae65",
                 hash = "6449ebca941eb3cf8aedf4c378e1be9e",
                 ts = "2"
             )
-            Log.d("PayHistoryy","${response}")
+            Log.d("PayHioryy","${response.data.results}")
             Resource.success(response)
 
         } catch (e: Exception){

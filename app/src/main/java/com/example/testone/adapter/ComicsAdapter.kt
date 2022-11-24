@@ -5,9 +5,14 @@ package com.pieme.wallet.adapter
  */
 
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
+import com.example.testone.R
 import com.example.testone.data.remote.response.comics.Result
 import com.example.testone.databinding.ItemTransactionsBinding
 
@@ -15,7 +20,6 @@ class ComicsAdapter: RecyclerView.Adapter<ComicsAdapter.MainViewHolder>() {
     class MainViewHolder(val binding: ItemTransactionsBinding) : RecyclerView.ViewHolder(binding.root) {
     }
     var data = mutableListOf<Result>()
-    var images = mutableListOf<String>()
     fun setDataList(data: List<Result>) {
         this.data = data.toMutableList()
 
@@ -31,23 +35,14 @@ class ComicsAdapter: RecyclerView.Adapter<ComicsAdapter.MainViewHolder>() {
         val data = data[position]
 
 
-        //  holder.binding.textView3.text = decimal.toString()
         holder.binding.success.text = data.title
-      //  Log.d("alaa",data.images.get(0).path)
 
-
-//        val path = data.images[0].path.toString()
-//        val extension = data.images[0].extension.toString()
-//        val tag = "$path"+"."+"$extension"
-//
-//     Log.d("tag",tag)
-//        val options = RequestOptions()
-//            .placeholder(R.drawable.person)
-//            .error(R.drawable.person)
-//        Glide.with(holder.itemView.context)
-//            .load("$path+"."+"$extension")
-//            .apply(options)
-//            .into(holder.binding.itemTransactionImage)
+        Glide.with(holder.itemView).setDefaultRequestOptions(RequestOptions()
+            .placeholder(R.drawable.person)
+            .dontAnimate()
+            .error(R.drawable.person)
+            .diskCacheStrategy(DiskCacheStrategy.DATA))
+            .load((data.thumbnail?.path ?:"" ) +"."+ (data.thumbnail?.extension ?:"" )).into(holder.binding.itemTransactionImage)
 
     }
 
