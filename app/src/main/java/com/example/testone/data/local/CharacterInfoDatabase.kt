@@ -11,7 +11,7 @@ import com.example.testone.data.local.entity.WordInfoEntity
 
 @Database(
     entities = [WordInfoEntity::class,SeriesEntity::class,StoriesEntity::class,],
-    version = 7
+    version = 10
 )
 @TypeConverters(Converters::class)
 abstract class CharacterInfoDatabase: RoomDatabase() {

@@ -12,6 +12,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.testone.R
 import com.example.testone.databinding.ItemTransactionsBinding
 import com.example.testone.domain.mappers.CharacterInfo
@@ -42,12 +45,13 @@ class ComicsAdapter: RecyclerView.Adapter<ComicsAdapter.MainViewHolder>() {
             val directions=ComicsFragmentDirections.actionHomeFragmentToDetailFragment(data)
             it.findNavController().navigate(directions)
         }
-//        Glide.with(holder.itemView).setDefaultRequestOptions(RequestOptions()
-//            .placeholder(R.drawable.person)
-//            .dontAnimate()
-//            .error(R.drawable.person)
-//            .diskCacheStrategy(DiskCacheStrategy.DATA))
-//            .load((data.thumbnail?.path ?:"" ) +"."+ (data.thumbnail?.extension ?:"" )).into(holder.binding.itemTransactionImage)
+        Glide.with(holder.itemView).setDefaultRequestOptions(
+            RequestOptions()
+            .placeholder(R.drawable.person)
+            .dontAnimate()
+            .error(R.drawable.person)
+            .diskCacheStrategy(DiskCacheStrategy.DATA))
+            .load((data.thumbnaill?.path ?:"" ) +"."+ (data.thumbnaill?.extension ?:"" )).into(holder.binding.itemTransactionImage)
 
     }
 

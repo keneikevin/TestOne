@@ -30,7 +30,7 @@ data class WordInfoDto(
     val series: Series,
     val stories: Stories,
     val textObjects: List<TextObject>,
-    val thumbnail: ThumbnailDto,
+    val thumbnail: ThumbnailDto?,
     val title: String,
     val upc: String,
     val urls: List<Url>,
@@ -41,19 +41,18 @@ data class WordInfoDto(
     fun toWordInfoEntity(): WordInfoEntity {
         return WordInfoEntity(
          //   meanings = meanings.map { it.toMeaning() },
-            title, description
+            title, description, thumbnaill = thumbnail?.toThumbnail()
         )
     }
     fun toSeriesEntity(): SeriesEntity {
         return SeriesEntity(
-            //   meanings = meanings.map { it.toMeaning() },
-            title, description
+
+            title, description, thumbnaill = thumbnail?.toThumbnail()
         )
     }
     fun toStoriesEntity(): StoriesEntity {
         return StoriesEntity(
-            //   meanings = meanings.map { it.toMeaning() },
-            title, description
+            title, description, thumbnaill = thumbnail?.toThumbnail()
         )
     }
 

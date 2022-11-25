@@ -9,11 +9,12 @@ import kotlinx.android.parcel.RawValue
 class SeriesEntity (
     val title:String,
     val description:String?,
+    val thumbnaill: Thumbnaill?=null,
     @PrimaryKey val id:Int? =null
 ){
     fun toWordInfo(): CharacterInfo{
         return CharacterInfo(
-            title, description =description
+            title, description =description,thumbnaill
         )
     }
 }

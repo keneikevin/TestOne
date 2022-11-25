@@ -9,5 +9,6 @@ import kotlinx.android.parcel.RawValue
 @Parcelize
 data class CharacterInfo(
     val title:String,
-    val description: String?
+    val description: String?,
+    val thumbnaill:@RawValue Thumbnaill?
 ): Parcelable

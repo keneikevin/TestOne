@@ -7,14 +7,15 @@ import kotlinx.android.parcel.RawValue
 
 
 @Entity(tableName = "storiesentity")
-class StoriesEntity (
+data class StoriesEntity (
     val title:String,
     val description:String?,
+    val thumbnaill: Thumbnaill?=null,
     @PrimaryKey val id:Int? =null
 ){
     fun toWordInfo(): CharacterInfo{
         return CharacterInfo(
-            title, description =null
+            title, description =description,thumbnaill=thumbnaill
         )
     }
 }

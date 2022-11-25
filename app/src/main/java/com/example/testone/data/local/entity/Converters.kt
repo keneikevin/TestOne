@@ -10,18 +10,18 @@ class Converters(
     private val jsonParser: JsonParser
 ) {
     @TypeConverter
-    fun fromMThumbnailDtoJson(json: String): ThumbnailDto{
-        return jsonParser.fromJson<ThumbnailDto>(
+    fun fromMThumbnailDtoJson(json: String): Thumbnaill{
+        return jsonParser.fromJson<Thumbnaill>(
             json,
-            object : TypeToken<ThumbnailDto>(){}.type
-        ) ?: ThumbnailDto("","")
+            object : TypeToken<Thumbnaill>(){}.type
+        ) ?: Thumbnaill("","")
     }
 
     @TypeConverter
-    fun toThumbnailDtoJson(meanings: ThumbnailDto): String {
+    fun toThumbnailDtoJson(thumbnaill: Thumbnaill?): String {
         return jsonParser.toJson(
-            meanings,
-            object : TypeToken<ThumbnailDto>(){}.type
+            thumbnaill,
+            object : TypeToken<Thumbnaill>(){}.type
         ) ?: ""
     }
 }

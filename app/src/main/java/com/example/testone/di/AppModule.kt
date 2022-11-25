@@ -5,9 +5,12 @@ import android.content.Context
 import androidx.room.Room
 import com.example.testone.data.MarvelApi
 import com.example.testone.data.local.CharacterInfoDatabase
+import com.example.testone.data.local.entity.Converters
 import com.example.testone.domain.WordInfoRepository
 import com.example.testone.domain.WordInfoRepositoryImpl
 import com.example.testone.util.Constants.BASE_URL
+import com.example.testone.util.GsonParser
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,6 +39,7 @@ object AppModule {
     fun provideWordInfoDatabase(
         @ApplicationContext context: Context
     )= Room.databaseBuilder(context, CharacterInfoDatabase::class.java, "word_db")
+        .addTypeConverter(Converters(GsonParser(Gson())))
         .fallbackToDestructiveMigration()
         .build()
 
