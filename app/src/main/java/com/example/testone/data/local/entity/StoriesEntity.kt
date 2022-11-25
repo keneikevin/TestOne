@@ -3,6 +3,7 @@ package com.example.testone.data.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.testone.domain.mappers.CharacterInfo
+import kotlinx.android.parcel.RawValue
 
 
 @Entity(tableName = "storiesentity")

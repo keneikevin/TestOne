@@ -16,7 +16,7 @@ interface MarvelApi {
     ): ComicsResponse
 
 
-    // List all comics from api
+    // List all series from api
     @GET("v1/public/series")
     suspend fun getSeries(
         @Query("apikey") apikey:String,
@@ -24,7 +24,7 @@ interface MarvelApi {
         @Query("hash") hash:String
     ): ComicsResponse
 
-    // List all comics from api
+    // List all stories from api
     @GET("v1/public/stories")
     suspend fun getStories(
         @Query("apikey") apikey:String,
