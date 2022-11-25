@@ -40,7 +40,7 @@ class SeriesFragment : Fragment(R.layout.fragment_transactions){
         binding.comicsRv.layoutManager = LinearLayoutManager(requireContext())
 
 
-        viewModel.comics.observe(requireActivity(), Observer {
+        viewModel.series.observe(requireActivity(), Observer {
             if (it.isNullOrEmpty()){
                 binding.empty.visibility = View.VISIBLE
             }else{

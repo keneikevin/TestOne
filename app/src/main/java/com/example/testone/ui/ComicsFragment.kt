@@ -36,14 +36,13 @@ class ComicsFragment : Fragment(R.layout.fragment_transactions){
         binding = FragmentTransactionsBinding.bind(view)
         subscribetobservers()
         viewModel.getComics()
-        viewModel.getComicDetails()
 
 
         binding.comicsRv.adapter = adapter
         binding.comicsRv.layoutManager = LinearLayoutManager(requireContext())
 
 
-        viewModel.comics.observe(requireActivity(), Observer {
+        viewModel.word.observe(requireActivity(), Observer {
             if (it.isNullOrEmpty()){
                 binding.empty.visibility = View.VISIBLE
             }else{
@@ -60,7 +59,7 @@ class ComicsFragment : Fragment(R.layout.fragment_transactions){
             result?.let {
                 when (result.status) {
                     Status.SUCCESS -> {
-
+        
                         lifecycleScope.launch {
                             Log.d("Itvalue", it.toString())
                             }

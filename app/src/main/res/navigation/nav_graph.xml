@@ -6,13 +6,33 @@
     <fragment
         android:id="@+id/comicsFragment"
         android:name="com.pieme.wallet.ui.ComicsFragment"
-        android:label="ComicsFragment" />
+        android:label="ComicsFragment" >
+        <action
+            android:id="@+id/actionHomeFragmentToDetailFragment"
+            app:destination="@id/characterDetail" />
+    </fragment>
     <fragment
         android:id="@+id/seriesFragment"
         android:name="com.pieme.wallet.ui.SeriesFragment"
-        android:label="SeriesFragment" />
+        android:label="SeriesFragment" >
+        <action
+            android:id="@+id/actionHomeFragmentToDetailFragment"
+            app:destination="@id/characterDetail" />
+    </fragment>
     <fragment
         android:id="@+id/storiesFragment"
         android:name="com.pieme.wallet.ui.StoriesFragment"
-        android:label="StoriesFragment" />
+        android:label="StoriesFragment" >
+        <action
+            android:id="@+id/actionHomeFragmentToDetailFragment"
+            app:destination="@id/characterDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetail"
+        android:name="com.example.testone.ui.CharacterDetail"
+        android:label="CharacterDetail" >
+        <argument
+            android:name="detail"
+            app:argType="com.example.testone.domain.mappers.CharacterInfo" />
+    </fragment>
 </navigation>

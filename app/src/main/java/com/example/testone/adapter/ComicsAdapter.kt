@@ -5,22 +5,23 @@ package com.pieme.wallet.adapter
  */
 
 
-import android.util.Log
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.example.testone.R
-import com.example.testone.data.remote.response.comics.Result
 import com.example.testone.databinding.ItemTransactionsBinding
+import com.example.testone.domain.mappers.CharacterInfo
+import com.pieme.wallet.ui.ComicsFragmentDirections
 
 class ComicsAdapter: RecyclerView.Adapter<ComicsAdapter.MainViewHolder>() {
     class MainViewHolder(val binding: ItemTransactionsBinding) : RecyclerView.ViewHolder(binding.root) {
     }
-    var data = mutableListOf<Result>()
-    fun setDataList(data: List<Result>) {
+    var data = mutableListOf<CharacterInfo>()
+    fun setDataList(data: List<CharacterInfo>) {
         this.data = data.toMutableList()
 
         notifyDataSetChanged()
@@ -36,13 +37,17 @@ class ComicsAdapter: RecyclerView.Adapter<ComicsAdapter.MainViewHolder>() {
 
 
         holder.binding.success.text = data.title
+        holder.binding.itemTransactionImage.setOnClickListener {
 
-        Glide.with(holder.itemView).setDefaultRequestOptions(RequestOptions()
-            .placeholder(R.drawable.person)
-            .dontAnimate()
-            .error(R.drawable.person)
-            .diskCacheStrategy(DiskCacheStrategy.DATA))
-            .load((data.thumbnail?.path ?:"" ) +"."+ (data.thumbnail?.extension ?:"" )).into(holder.binding.itemTransactionImage)
+            val directions=ComicsFragmentDirections.actionHomeFragmentToDetailFragment(data)
+            it.findNavController().navigate(directions)
+        }
+//        Glide.with(holder.itemView).setDefaultRequestOptions(RequestOptions()
+//            .placeholder(R.drawable.person)
+//            .dontAnimate()
+//            .error(R.drawable.person)
+//            .diskCacheStrategy(DiskCacheStrategy.DATA))
+//            .load((data.thumbnail?.path ?:"" ) +"."+ (data.thumbnail?.extension ?:"" )).into(holder.binding.itemTransactionImage)
 
     }
 
