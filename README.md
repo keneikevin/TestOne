@@ -1,6 +1,6 @@
 # TestOne
 
-This app demonstrates: Hilt, Coroutines, Flow, Jetpack (Room, ViewModel),Navigation component,recyclerView,ViewModel, offline catching with room and MVVM architecture.
+This app demonstrates: Hilt, Coroutines, LiveData/MutableLiveData, Jetpack (Room, ViewModel),Navigation component,recyclerView,ViewModel, offline catching with room and MVVM architecture.
 
 ![Screenshot_20221126-004703](https://user-images.githubusercontent.com/40203432/204058323-2ce4ab0e-1270-42e4-9c55-53735158cb2b.png)
 
